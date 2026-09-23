@@ -1,0 +1,6 @@
+<ion-app [class]="'compania-' + compania">
+  <ion-router-outlet></ion-router-outlet>
+  @if (showTabs) {
+    <app-tabbar></app-tabbar>
+  }
+</ion-app>

@@ -1,0 +1,90 @@
+ion-content {
+  --background: var(--login-background);
+}
+ion-content::part(background) { background: var(--login-background); }
+ion-toolbar { --background: transparent; --ion-color-base: transparent !important; }
+
+.hero {
+  text-align: center;
+  padding: 24px 20px 0;
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #f7fbff;
+  margin: 12px 0 4px;
+  line-height: 1.1;
+}
+.hero h1 span { color: #d5ff5f; }
+.hero p { color: #a1a1aa; font-size: 13px; font-weight: 500; margin: 0; }
+
+.login-card {
+  background: #1d1d1d;
+  border-radius: 20px;
+  padding: 24px 20px 20px;
+  margin: 16px 16px 0;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.login-field { margin-bottom: 14px; }
+.login-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px 4px;
+}
+.login-input-wrap { position: relative; display: flex; align-items: center; }
+.login-input-icon {
+  position: absolute;
+  left: 16px;
+  font-size: 20px;
+  color: #71717a;
+  z-index: 2;
+  pointer-events: none;
+}
+.login-input-wrap ion-input {
+  --padding-start: 46px;
+  --padding-end: 16px;
+  flex: 1;
+}
+.login-eye {
+  position: absolute;
+  right: 8px;
+  z-index: 2;
+  background: transparent;
+  border: none;
+  color: #71717a;
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.login-eye ion-icon { font-size: 20px; }
+.login-field .login-input-wrap:has(.login-eye) ion-input { --padding-end: 48px; }
+.login-forgot { display: flex; justify-content: flex-end; margin: 2px 0 4px; }
+.login-forgot ion-button {
+  --color: #a1a1aa;
+  --background-hover: transparent;
+  font-weight: 600;
+  font-size: 12px;
+  min-height: 0;
+  margin: 0;
+  --padding-start: 4px;
+  --padding-end: 4px;
+}
+
+ion-img {
+  width: 56%;
+  max-width: 200px;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5));
+}
+.footer { min-height: 0; text-align: center; background: transparent; }
+.footer ion-toolbar { --background: transparent; }

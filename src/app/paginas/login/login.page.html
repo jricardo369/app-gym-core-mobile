@@ -1,0 +1,51 @@
+<ion-content [fullscreen]="true" class="background">
+  <div class="hero">
+    @if (compania == 'iroda') {
+      <ion-img src="../../assets/img/{{logo}}"></ion-img>
+    }
+    @if (compania == 'lua') {
+      <ion-img src="../../assets/img/{{logoBlanco}}"></ion-img>
+    }
+    @if (compania == 'general') {
+      <ion-img src="../../assets/img/{{logoBlanco}}"></ion-img>
+    }
+    <h1>Get Set, Ready for<br><span>Workout</span></h1>
+    <p>Track like a pro • Stay synced</p>
+  </div>
+
+  <form #loginForm="ngForm" novalidate class="login-card">
+    <div class="login-field">
+      <label class="login-label">Usuario</label>
+      <div class="login-input-wrap">
+        <ion-icon name="mail-outline" class="login-input-icon" aria-hidden="true"></ion-icon>
+        <ion-input placeholder="Ingresa tu usuario" type="text" [(ngModel)]="login().usuario" name="usuario" #usuario="ngModel" spellcheck="false" autocapitalize="on" required></ion-input>
+      </div>
+    </div>
+    <div class="login-field">
+      <label class="login-label">Contraseña</label>
+      <div class="login-input-wrap">
+        <ion-icon name="lock-closed-outline" class="login-input-icon" aria-hidden="true"></ion-icon>
+        <ion-input placeholder="Ingresa tu contraseña" [type]="showPass ? 'text' : 'password'" [(ngModel)]="login().contrasenia" name="contrasenia" #contrasenia="ngModel" required></ion-input>
+        <button type="button" class="login-eye" (click)="togglePass()" aria-label="Mostrar contraseña">
+          <ion-icon [name]="showPass ? 'eye-outline' : 'eye-off-outline'"></ion-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="login-forgot">
+      <ion-button fill="clear" (click)="recuperar()">
+        Recuperar contraseña
+      </ion-button>
+    </div>
+
+    <ion-button (click)="onLogin(loginForm)" expand="block" class="btndorado" style="margin-top: 8px;">
+      Start Workout
+    </ion-button>
+    <!--<p style="text-align: center; font-size: 11px; color: #94a3b8; margin: 8px 0 0; font-weight: 500;">37 • Workout &nbsp; Watch the video to learn more →</p>-->
+  </form>
+</ion-content>
+<ion-footer class="ion-no-border footer">
+  <ion-toolbar>
+    <ion-label style="color: #94a3b8; font-size: 10px; font-weight: 600; letter-spacing: 0.08em;">V1.0 • TRACK LIKE A PRO</ion-label>
+  </ion-toolbar>
+</ion-footer>

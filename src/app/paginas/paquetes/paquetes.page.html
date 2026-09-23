@@ -1,0 +1,53 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Nuevo paquete</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="back()" defaultHref="" text="" class="dorado"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="contenido">
+  <form #nPago="ngForm" novalidate>
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" size-lg="5" size-xs="12">
+          <div padding>
+            <ion-item lines="none">
+              <ion-label position="stacked" style="color:#0f172a; font-weight:700; font-size:12px; margin-bottom:6px;">Tipo de Pago</ion-label>
+              <ion-select [(ngModel)]="tipoPago" name="tipoPago" placeholder="Selecciona pago" okText="Aceptar" (ngModelChange)="optionsPago()" cancelText="Cancelar" required>
+                @for (Pagos of pago; track Pagos) {
+                  <ion-select-option [value]="Pagos.id">{{Pagos.descripcion}}</ion-select-option>
+                }
+              </ion-select>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label position="stacked" style="color:#0f172a; font-weight:700; font-size:12px; margin-bottom:6px;">Tipo de Inscripción</ion-label>
+              <ion-select [(ngModel)]="tipoIns" name="tipoInscripcion" placeholder="Selecciona inscripción" okText="Aceptar" (ngModelChange)="optionsIns()" cancelText="Cancelar" required>
+                @for (Inscripciones of inscripciones; track Inscripciones) {
+                  <ion-select-option [value]="Inscripciones.id">{{Inscripciones.tipo_inscripcion}}</ion-select-option>
+                }
+              </ion-select>
+            </ion-item>
+            <ion-item lines="none" button detail="false" (click)="openPicker(fechaPaq)">
+              <ion-label position="stacked" style="color:#0f172a; font-weight:700; font-size:12px; margin-bottom:6px;">Fecha de inicio</ion-label>
+              <ion-input #fechaPaq name="fecha" type="date" [(ngModel)]="np.fecha" required style="pointer-events: none;"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label position="stacked" style="color:#0f172a; font-weight:700; font-size:12px; margin-bottom:6px;">Comentarios</ion-label>
+              <ion-input type="text" name="comentario" [(ngModel)]="np.comentario" placeholder="Comentario" required></ion-input>
+            </ion-item>
+          </div>
+          <br>
+          <div>
+            <ion-row>
+              <ion-col>
+                <ion-button (click)="nuevoPaquete(nPago)" type="submit" size="large" expand="block" class="btndorado">Agregar</ion-button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

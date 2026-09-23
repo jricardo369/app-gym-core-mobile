@@ -1,0 +1,37 @@
+ion-content {
+  --overflow: hidden;
+}
+
+ion-img {
+  width: 45%;
+  display: block;
+  margin: auto;
+}
+
+ion-col {
+  display: block;
+  margin: auto;
+}
+
+/* ===== Campos estilo perfil: etiqueta blanca + input píldora con icono ===== */
+.profile-field { margin-bottom: 14px; }
+.profile-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px 4px;
+}
+.profile-input-wrap { position: relative; display: flex; align-items: center; }
+.profile-input-icon {
+  position: absolute;
+  left: 16px;
+  font-size: 20px;
+  color: #71717a;
+  z-index: 2;
+  pointer-events: none;
+}
+.profile-input-wrap ion-input {
+  --padding-start: 46px;
+  flex: 1;
+}

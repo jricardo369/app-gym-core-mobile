@@ -1,0 +1,90 @@
+:root {
+  --ion-color-primary: #d5ff5f;
+  --ion-color-primary-rgb: 213, 255, 95;
+  --ion-color-primary-contrast: #101010;
+  --ion-color-primary-contrast-rgb: 16, 16, 16;
+  --ion-color-primary-shade: #bbdf54;
+  --ion-color-primary-tint: #d9ff6f;
+
+  --ion-color-secondary: #1d1d1d;
+  --ion-color-secondary-rgb: 29, 29, 29;
+  --ion-color-secondary-contrast: #f7fbff;
+  --ion-color-secondary-contrast-rgb: 247, 251, 255;
+  --ion-color-secondary-shade: #1a1a1a;
+  --ion-color-secondary-tint: #343434;
+
+  --ion-color-tertiary: #e8ffa8;
+  --ion-color-tertiary-rgb: 232, 255, 168;
+  --ion-color-tertiary-contrast: #101010;
+  --ion-color-tertiary-contrast-rgb: 16, 16, 16;
+  --ion-color-tertiary-shade: #cce094;
+  --ion-color-tertiary-tint: #eaffb1;
+
+  --ion-color-success: #a3e635;
+  --ion-color-success-rgb: 163, 230, 53;
+  --ion-color-success-contrast: #101010;
+  --ion-color-success-contrast-rgb: 16, 16, 16;
+  --ion-color-success-shade: #90ca2f;
+  --ion-color-success-tint: #ace949;
+
+  --ion-color-warning: #facc15;
+  --ion-color-warning-rgb: 250, 204, 21;
+  --ion-color-warning-contrast: #101010;
+  --ion-color-warning-contrast-rgb: 16, 16, 16;
+  --ion-color-warning-shade: #dcb412;
+  --ion-color-warning-tint: #fbd12c;
+
+  --ion-color-danger: #f87171;
+  --ion-color-danger-rgb: 248, 113, 113;
+  --ion-color-danger-contrast: #101010;
+  --ion-color-danger-contrast-rgb: 16, 16, 16;
+  --ion-color-danger-shade: #da6363;
+  --ion-color-danger-tint: #f97f7f;
+
+  --ion-color-dark: #101010;
+  --ion-color-dark-rgb: 16, 16, 16;
+  --ion-color-dark-contrast: #f7fbff;
+  --ion-color-dark-contrast-rgb: 247, 251, 255;
+  --ion-color-dark-shade: #0e0e0e;
+  --ion-color-dark-tint: #282828;
+
+  --ion-color-medium: #a1a1aa;
+  --ion-color-medium-rgb: 161, 161, 170;
+  --ion-color-medium-contrast: #101010;
+  --ion-color-medium-contrast-rgb: 16, 16, 16;
+  --ion-color-medium-shade: #8e8e96;
+  --ion-color-medium-tint: #aaaab3;
+
+  --ion-color-light: #262626;
+  --ion-color-light-rgb: 38, 38, 38;
+  --ion-color-light-contrast: #f7fbff;
+  --ion-color-light-contrast-rgb: 247, 251, 255;
+  --ion-color-light-shade: #212121;
+  --ion-color-light-tint: #3c3c3c;
+
+  --ion-background-color: #101010;
+  --ion-background-color-rgb: 16, 16, 16;
+  --ion-text-color: #f7fbff;
+  --ion-text-color-rgb: 247, 251, 255;
+
+  /* Fitnest design tokens — base imgs_apps/d598efe095aa1d6b1e4eace5ae0f0086 */
+  --fit-black: #101010;
+  --fit-card: #1d1d1d;
+  --fit-card-2: #262626;
+  --fit-lime: #d5ff5f;
+  --fit-lime-soft: rgba(213, 255, 95, 0.14);
+  --fit-white: #f7fbff;
+  --fit-muted: #a1a1aa;
+  --fit-track: #2a2a2a;
+  --fit-border: rgba(213, 255, 95, 0.12);
+
+  --gym-gradient: linear-gradient(135deg, #d5ff5f 0%, #e8ffa8 100%);
+  --gym-gradient-soft: radial-gradient(120% 60% at 50% 0%, rgba(213,255,95,0.14) 0%, rgba(213,255,95,0) 55%), linear-gradient(180deg, #181818 0%, #101010 65%, #101010 100%);
+  --gym-card-bg: #1d1d1d;
+  --gym-card-radius: 20px;
+  --gym-card-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  --gym-pill-bg: #d5ff5f;
+  --gym-text-muted: #a1a1aa;
+  --gym-text-dark: #f7fbff;
+  --gym-border: rgba(255, 255, 255, 0.08);
+}

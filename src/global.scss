@@ -1,0 +1,499 @@
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import '@ionic/angular/css/display.css';
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* { font-family: 'Poppins', sans-serif !important; }
+
+:root {
+  --color-dorado-iroda: #d5ff5f;
+  --color-dorado-lua: #d5ff5f;
+  --color-dorado-iroda-dark: #bbdf54;
+  --color-dorado-lua-dark: #bbdf54;
+  --btn-height-iroda: 52px;
+  --btn-height-lua: 52px;
+  --btn-border-radius-iroda: 999px;
+  --btn-border-radius-lua: 999px;
+  --label-g1-iroda: #d5ff5f;
+  --label-g1-lua: #d5ff5f;
+  --label-g1-fontc-iroda: #101010;
+  --label-g1-fontc-lua: #101010;
+  --coach-iroda: #d5ff5f;
+  --coach-lua: #d5ff5f;
+  --font-family-iroda: 'Poppins';
+  --font-family-lua: 'Poppins';
+  --login-background-iroda: radial-gradient(110% 50% at 50% 0%, rgba(213,255,95,0.18) 0%, rgba(213,255,95,0) 60%), linear-gradient(180deg, #1a1a1a 0%, #101010 100%);
+  --login-background-lua: radial-gradient(110% 50% at 50% 0%, rgba(213,255,95,0.18) 0%, rgba(213,255,95,0) 60%), linear-gradient(180deg, #1a1a1a 0%, #101010 100%);
+  --color-activo-iroda: #d5ff5f;
+  --color-inactivo-iroda: #f87171;
+  --color-faltapago-iroda: #facc15;
+  --color-activo-lua: #d5ff5f;
+  --color-inactivo-lua: #f87171;
+  --color-faltapago-lua: #facc15;
+  --backgroud-color-activo-iroda: rgba(213,255,95,0.16);
+  --backgroud-color-inactivo-iroda: rgba(248,113,113,0.16);
+  --backgroud-color-faltapago-iroda: rgba(250,204,21,0.16);
+  --backgroud-color-activo-lua: rgba(213,255,95,0.16);
+  --backgroud-color-inactivo-lua: rgba(248,113,113,0.16);
+  --backgroud-color-faltapago-lua: rgba(250,204,21,0.16);
+  --color-usuario-iroda: #d5ff5f;
+  --color-usuarioc-iroda: #f7fbff;
+  --color-usuarioa-iroda: #facc15;
+  --color-usuario-lua: #d5ff5f;
+  --color-usuarioc-lua: #f7fbff;
+  --color-usuarioa-lua: #facc15;
+  --backgroud-color-usuario-iroda: rgba(213,255,95,0.16);
+  --backgroud-color-usuarioc-iroda: rgba(247,251,255,0.12);
+  --backgroud-color-usuarioa-iroda: rgba(250,204,21,0.16);
+  --backgroud-color-usuario-lua: rgba(213,255,95,0.16);
+  --backgroud-color-usuarioc-lua: rgba(247,251,255,0.12);
+  --backgroud-color-usuarioa-lua: rgba(250,204,21,0.16);
+  --label-lugar-iroda: #d5ff5f;
+  --label-lugar-lua: #d5ff5f;
+}
+
+.compania-iroda {
+  --color-dorado: var(--color-dorado-iroda);
+  --color-dorado-dark: var(--color-dorado-iroda-dark);
+  --btn-height: var(--btn-height-iroda);
+  --btn-border-radius: var(--btn-border-radius-iroda);
+  --label-g1: var(--label-g1-iroda);
+  --label-g1-fontc: var(--label-g1-fontc-iroda);
+  --coach: var(--coach-iroda);
+  --font-family: var(--font-family-iroda);
+  --login-background: var(--login-background-iroda);
+  --color-activo: var(--color-activo-iroda);
+  --backgroud-color-activo: var(--backgroud-color-activo-iroda);
+  --color-inactivo: var(--color-inactivo-iroda);
+  --backgroud-color-inactivo: var(--backgroud-color-inactivo-iroda);
+  --color-faltapago: var(--color-faltapago-iroda);
+  --backgroud-color-faltapago: var(--backgroud-color-faltapago-iroda);
+  --color-usuario: var(--color-usuario-iroda);
+  --backgroud-color-usuario: var(--backgroud-color-usuario-iroda);
+  --color-usuarioc: var(--color-usuarioc-iroda);
+  --backgroud-color-usuarioc: var(--backgroud-color-usuarioc-iroda);
+  --color-usuarioa: var(--color-usuarioa-iroda);
+  --backgroud-color-usuarioa: var(--backgroud-color-usuarioa-iroda);
+  --label-lugar: var(--label-lugar-iroda);
+}
+
+.compania-lua {
+  --color-dorado: var(--color-dorado-lua);
+  --color-dorado-dark: var(--color-dorado-lua-dark);
+  --btn-height: var(--btn-height-lua);
+  --btn-border-radius: var(--btn-border-radius-lua);
+  --label-g1: var(--label-g1-lua);
+  --label-g1-fontc: var(--label-g1-fontc-lua);
+  --coach: var(--coach-lua);
+  --font-family: var(--font-family-lua);
+  --login-background: var(--login-background-lua);
+  --color-activo: var(--color-activo-lua);
+  --backgroud-color-activo: var(--backgroud-color-activo-lua);
+  --color-inactivo: var(--color-inactivo-lua);
+  --backgroud-color-inactivo: var(--backgroud-color-inactivo-lua);
+  --color-faltapago: var(--color-faltapago-lua);
+  --backgroud-color-faltapago: var(--backgroud-color-faltapago-lua);
+  --color-usuario: var(--color-usuario-lua);
+  --backgroud-color-usuario: var(--backgroud-color-usuario-lua);
+  --color-usuarioc: var(--color-usuarioc-lua);
+  --backgroud-color-usuarioc: var(--backgroud-color-usuarioc-lua);
+  --color-usuarioa: var(--color-usuarioa-lua);
+  --backgroud-color-usuarioa: var(--backgroud-color-usuarioa-lua);
+  --label-lugar: var(--label-lugar-lua);
+}
+
+/* ===== Base Fitnest dark ===== */
+ion-app { background: #101010; }
+ion-content { --background: var(--gym-gradient-soft); --color: #f7fbff; --padding-top: 0; }
+ion-header { --background: transparent; background: transparent; }
+ion-toolbar {
+  --background: rgba(16,16,16,0.85);
+  --color: #f7fbff;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: none;
+  --border-width: 0;
+  --min-height: 56px;
+}
+ion-title {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  background: transparent;
+  color: #f7fbff;
+  text-align: center;
+}
+ion-title.boton-dorado { color: #f7fbff !important; }
+
+.logo { width: 42%; display: block; margin: auto; margin-bottom: 12px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5)); }
+.dorado { color: var(--color-dorado); font-weight: 600; font-size: 15px; }
+.rojo { color: #f87171; }
+.verde { color: #d5ff5f; }
+.greeni { --background: var(--gym-gradient); color: #101010; }
+.labelinput { color: #a1a1aa; font-weight: 500; font-size: 13px; }
+
+/* ===== Botones estilo Fitnest: píldora lima, texto negro ===== */
+.btndorado, ion-button.btndorado {
+  --background: #d5ff5f;
+  --background-activated: #bbdf54;
+  --background-hover: #e8ffa8;
+  --color: #101010;
+  --border-radius: 999px;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  --box-shadow: 0 8px 24px rgba(213,255,95,0.25);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  height: 52px;
+  min-height: 52px;
+  text-transform: none;
+  --background-activated-opacity: 1;
+}
+ion-button.btndorado::part(native) { border-radius: 999px; color: #101010; font-weight: 700; }
+
+.btngris {
+  --background: #262626;
+  --color: #f7fbff;
+  --border-radius: 999px;
+  font-weight: 600;
+  height: 40px;
+  text-transform: none;
+}
+
+/* ===== Cards oscuras ===== */
+ion-card {
+  --background: var(--gym-card-bg);
+  background: var(--gym-card-bg);
+  border-radius: var(--gym-card-radius);
+  box-shadow: var(--gym-card-shadow);
+  border: 1px solid var(--gym-border);
+  margin: 12px;
+  overflow: hidden;
+  color: #f7fbff;
+}
+ion-card-header { padding: 16px 20px 8px; }
+ion-card-title { font-weight: 700; font-size: 16px; color: #f7fbff; letter-spacing: -0.01em; }
+ion-card-content { padding: 0 20px 16px; color: #a1a1aa; }
+ion-card-subtitle { color: #d5ff5f; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* ===== Listas / items ===== */
+ion-list {
+  background: transparent;
+  padding: 8px 12px;
+}
+ion-item {
+  --background: #1d1d1d;
+  --color: #f7fbff;
+  --border-radius: 20px;
+  --padding-start: 16px;
+  --inner-padding-end: 12px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.08);
+  --border-width: 0;
+  overflow: hidden;
+}
+ion-item::part(native) { padding-left: 16px; border-radius: 20px; background: #1d1d1d; color: #f7fbff; }
+ion-item:has(ion-card) {
+  --background: transparent;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  margin-bottom: 0;
+  padding: 0;
+}
+ion-item:has(ion-card)::part(native) { background: transparent; }
+ion-item ion-label h2 { font-weight: 600; color: #f7fbff; font-size: 15px; }
+ion-item ion-label p { color: #a1a1aa; font-size: 13px; }
+ion-item ion-icon { color: #d5ff5f; }
+
+ion-searchbar { --background: #1d1d1d; --color: #f7fbff; --placeholder-color: #a1a1aa; --icon-color: #d5ff5f; --border-radius: 20px; --box-shadow: none; padding: 8px 12px; }
+.searchbar-input-container input { font-size: 14px !important; }
+
+/* ===== Píldoras lima como la referencia (50 MIN, Chest Triceps, Mid-Level) ===== */
+.label-g1, .anuncio {
+  background: #d5ff5f;
+  color: #101010;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  padding: 6px 12px;
+  border: 1px solid #d5ff5f;
+}
+.anuncio { font-size: 9px; text-align: center; width: 100%; padding: 6px; }
+
+.color-coach { color: var(--coach); }
+.contenido { --padding-top: 12px; --padding-bottom: 12px; --padding-start: 12px; --padding-end: 12px; }
+
+.label-usuario, .label-usuario-c, .label-usuario-a, .label-activo, .label-inactivo, .label-faltapago, .label-lugar {
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 10px;
+  padding: 5px 12px;
+  letter-spacing: 0.03em;
+  border: 1px solid transparent;
+}
+.label-usuario { background: rgba(213,255,95,0.16); color: #d5ff5f; border-color: rgba(213,255,95,0.3); }
+.label-usuario-c { background: rgba(247,251,255,0.10); color: #f7fbff; border-color: rgba(255,255,255,0.14); }
+.label-usuario-a { background: rgba(250,204,21,0.16); color: #facc15; border-color: rgba(250,204,21,0.3); }
+.label-activo { background: rgba(213,255,95,0.16); color: #d5ff5f; border-color: rgba(213,255,95,0.3); }
+.label-inactivo { background: rgba(248,113,113,0.16); color: #f87171; border-color: rgba(248,113,113,0.3); }
+.multas { background: rgba(248,113,113,0.16); color: #f87171; border-radius: 999px; font-size: 10px; font-weight: 700; padding: 4px 10px; float: right; }
+.label-faltapago { background: rgba(250,204,21,0.16); color: #facc15; border-color: rgba(250,204,21,0.3); }
+.label-lugar { background: #d5ff5f; color: #101010; font-weight: 700; }
+
+.label-estatus-a-iroda, .label-estatus-a-lua {
+  background: #d5ff5f; color: #101010; border-radius: 50%; width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;
+}
+.label-estatus-i-iroda, .label-estatus-i-lua {
+  background: #2a2a2a; color: #a1a1aa; border-radius: 50%; width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700;
+}
+
+ion-back-button { --color: #f7fbff; --icon-font-size: 22px; margin-left: 4px; }
+ion-footer { background: transparent; }
+ion-footer ion-toolbar { --background: rgba(16,16,16,0.92); backdrop-filter: blur(20px); border-radius: 24px 24px 0 0; box-shadow: 0 -4px 24px rgba(0,0,0,0.5); border-top: 1px solid rgba(255,255,255,0.08); }
+
+/* ===== Tab bar estilo referencia ===== */
+ion-tab-bar {
+  --background: #161616;
+  --color: #71717a;
+  --color-selected: #d5ff5f;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px 24px 0 0;
+}
+ion-tab-button.tab-selected { color: #d5ff5f; }
+
+/* ===== Bloques hero / stats / progreso ===== */
+.gym-hero {
+  background: linear-gradient(135deg, #d5ff5f 0%, #c4f04e 100%);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 12px;
+  color: #101010;
+}
+.gym-hero h2, .gym-hero p { color: #101010 !important; }
+.gym-stat {
+  background: #1d1d1d;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: var(--gym-card-shadow);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+.gym-stat b { font-size: 22px; font-weight: 700; color: #f7fbff; display: block; }
+.gym-stat span { font-size: 11px; color: #a1a1aa; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+.gym-stat ion-icon, .gym-stat .stat-icon { color: #101010; background: #d5ff5f; border-radius: 50%; padding: 8px; }
+.gym-progress { height: 8px; background: #2a2a2a; border-radius: 999px; overflow: hidden; }
+.gym-progress i { display: block; height: 100%; background: #d5ff5f; border-radius: 999px; }
+
+/* ===== Utilidades Fitnest (icon-badge lima, checklist, fechas) ===== */
+.fit-icon-badge {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: #d5ff5f; color: #101010;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 800;
+}
+.fit-pill {
+  background: #d5ff5f; color: #101010;
+  border-radius: 999px; font-size: 11px; font-weight: 700;
+  padding: 6px 12px; display: inline-flex; align-items: center; gap: 6px;
+}
+.fit-pill-outline {
+  background: transparent; color: #d5ff5f;
+  border: 1px solid rgba(213,255,95,0.4);
+  border-radius: 999px; font-size: 11px; font-weight: 600;
+  padding: 6px 12px;
+}
+.fit-card-dark {
+  background: #1d1d1d; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+}
+.fit-link { color: #d5ff5f; font-weight: 600; font-size: 12px; }
+
+/* ===== Formularios oscuros ===== */
+ion-item:has(ion-input), ion-item:has(ion-select), ion-item:has(ion-textarea), ion-item:has(ion-datetime), ion-item:has(ion-segment) {
+  --background: transparent;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  --border-width: 0;
+}
+ion-item:has(ion-input)::part(native), ion-item:has(ion-select)::part(native), ion-item:has(ion-textarea)::part(native), ion-item:has(ion-datetime)::part(native), ion-item:has(ion-segment)::part(native) {
+  background: transparent;
+}
+ion-input, ion-select {
+  --background: #101010;
+  --color: #f7fbff;
+  --placeholder-color: #71717a;
+  background: #101010;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 999px;
+  --border-radius: 999px;
+  --padding-start: 14px;
+  --padding-end: 44px;
+  --highlight-color-focused: #d5ff5f;
+  --highlight-color-valid: #d5ff5f;
+  font-size: 14px;
+  font-weight: 500;
+  color: #f7fbff;
+  height: 52px;
+  min-height: 52px;
+}
+ion-textarea {
+  --background: #101010;
+  --color: #f7fbff;
+  --placeholder-color: #71717a;
+  background: #101010;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 20px;
+  --border-radius: 20px;
+  --padding-start: 14px;
+  --padding-end: 14px;
+  --highlight-color-focused: #d5ff5f;
+  --highlight-color-valid: #d5ff5f;
+  font-size: 14px;
+  font-weight: 500;
+  color: #f7fbff;
+}
+ion-input.has-focus, ion-select.has-focus, ion-textarea.has-focus {
+  border-color: rgba(213,255,95,0.6) !important;
+  box-shadow: 0 0 0 4px rgba(213,255,95,0.12);
+}
+ion-label[position="stacked"] {
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+ion-input::part(native)::placeholder, ion-textarea::part(native)::placeholder { color: #71717a; padding-left: 5px; }
+.native-input::placeholder, input::placeholder { padding-left: 5px; text-indent: 5px; color: #71717a; }
+ion-input::part(native), .native-input, ion-input .native-input, input.native-input { padding-left: 5px !important; text-indent: 5px !important; color: #f7fbff; }
+ion-input input[type="date"], input[type="date"] { padding-left: 5px; text-indent: 5px; color-scheme: dark; }
+ion-input[type="date"] { --padding-start: 19px; }
+ion-label[position="floating"] { color: #a1a1aa !important; font-size: 12px !important; font-weight: 600 !important; letter-spacing: 0.02em; }
+ion-select::part(icon) { color: #d5ff5f; }
+ion-datetime { --background: #1d1d1d; --color: #f7fbff; background: #1d1d1d; color: #f7fbff; border-radius: 20px; }
+
+ion-checkbox {
+  --size: 22px;
+  --border-radius: 50%;
+  --border-color: rgba(213,255,95,0.5);
+  --border-width: 1.5px;
+  --background: transparent;
+  --checkmark-color: #101010;
+  --checkbox-background-checked: #d5ff5f;
+  --border-color-checked: #d5ff5f;
+  --checkmark-width: 2px;
+}
+ion-checkbox.checkbox-checked { --background: #d5ff5f; --border-color: #d5ff5f; }
+
+ion-segment {
+  --background: #1d1d1d;
+  background: #1d1d1d;
+  border-radius: 999px;
+  padding: 4px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+ion-segment-button {
+  --border-radius: 999px;
+  --color: #a1a1aa;
+  --color-checked: #101010;
+  --background-checked: #d5ff5f;
+  --indicator-color: transparent;
+  font-weight: 600;
+  font-size: 13px;
+  min-height: 36px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+}
+ion-segment-button.segment-button-checked {
+  background: #d5ff5f;
+  box-shadow: none;
+  color: #101010;
+  font-weight: 700;
+}
+ion-segment-button.segment-button-checked ion-label { color: #101010 !important; }
+ion-item:has(ion-segment) > div > ion-label { color: #f7fbff !important; }
+
+ion-modal.gym-calendar-modal {
+  --height: auto;
+  --width: 92%;
+  --max-width: 360px;
+  --border-radius: 20px;
+  --box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --backdrop-opacity: 0.6;
+}
+ion-modal.gym-calendar-modal::part(content) {
+  border-radius: 20px;
+  height: auto;
+  max-height: 85vh;
+  width: 92%;
+  max-width: 360px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+  background: #1d1d1d;
+}
+ion-modal.gym-calendar-modal ion-datetime {
+  border-radius: 20px;
+  max-height: 70vh;
+}
+
+ion-alert, ion-loading, ion-toast { --background: #1d1d1d; --color: #f7fbff; }
+
+/* ===== Diálogos oscuros (aceptar / cancelar) ===== */
+ion-alert.my-custom-class {
+  --background: #1d1d1d;
+  --color: #f7fbff;
+  --backdrop-opacity: 0.6;
+}
+ion-alert.my-custom-class .alert-wrapper {
+  background: #1d1d1d;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.5);
+}
+ion-alert.my-custom-class .alert-title { color: #f7fbff; font-weight: 700; }
+ion-alert.my-custom-class .alert-sub-title,
+ion-alert.my-custom-class .alert-message { color: #a1a1aa; }
+ion-alert.my-custom-class .alert-button-group { padding: 8px; }
+ion-alert.my-custom-class .alert-button {
+  color: #d5ff5f;
+  font-weight: 700;
+  text-transform: none;
+}
+ion-alert.my-custom-class .alert-button[role="cancel"] { color: #a1a1aa; font-weight: 600; }
+ion-alert.my-custom-class .alert-input {
+  background: #2a2a2a;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: #f7fbff;
+}
+ion-alert.my-custom-class .alert-input::placeholder { color: #71717a; }
+ion-alert.my-custom-class .alert-checkbox-group,
+ion-alert.my-custom-class .alert-radio-group { border-color: rgba(255,255,255,0.08); }
+ion-alert.my-custom-class .alert-tappable { color: #f7fbff; }
+ion-spinner { --color: #d5ff5f; }
+ion-refresher { --color: #d5ff5f; }
+::-webkit-scrollbar { width: 0; }
+
+/* Tab bar persistente */
+app-tabbar { display: block; position: fixed; bottom: 0; left: 0; right: 0; z-index: 20; }
+app-tabbar ion-footer { margin: 0; }
+ion-content:has(+ app-tabbar) { --padding-bottom: 96px; }

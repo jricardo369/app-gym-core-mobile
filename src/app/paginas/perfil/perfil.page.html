@@ -1,0 +1,150 @@
+<ion-header class="ion-no-border" translucent>
+  <ion-toolbar>
+    <ion-title>Perfiles</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="registro()">
+        @if (compania === 'iroda') {
+          <ion-icon class="dorado" slot="icon-only" name="person-add-outline"></ion-icon>
+        }
+
+        @if (compania === 'lua') {
+          <ion-icon class="dorado icon-20" slot="icon-only" name="add-user-lua"></ion-icon>
+        }
+
+        @if (compania !== 'iroda' && compania !== 'lua') {
+          <ion-icon class="dorado icon-20" slot="icon-only" name="person-add-outline"></ion-icon>
+        }
+
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="menuPerfil()" defaultHref="" text="" class="dorado"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar placeholder="Buscar por usuario" animated (ionChange)="buscar($event)" [debounce]="250">
+  </ion-searchbar>
+  <div class="u-filter">
+    <ion-segment [value]="filtro" (ionChange)="cambiarFiltro($event)">
+      <ion-segment-button value="usuarios">
+        <ion-label>Usuarios</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="coaches">
+        <ion-label>Coaches</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-header>
+<ion-content>
+
+  @if (!listado) {
+    <ion-list class="u-list">
+      @for (item of [1,2,3,4,5,6,7]; track item) {
+        <ion-item lines="none" class="u-item ion-no-padding">
+          <div class="u-card">
+            <div class="u-top">
+              <span class="u-avatar skeleton-avatar">
+                <ion-skeleton-text animated style="width: 100%; height: 100%; border-radius: 50%; margin: 0;"></ion-skeleton-text>
+              </span>
+              <span class="u-main">
+                <ion-skeleton-text animated style="width: 55%; height: 14px; border-radius: 6px;"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 75%; height: 11px; border-radius: 6px; margin-top: 8px;"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 40%; height: 18px; border-radius: 999px; margin-top: 8px;"></ion-skeleton-text>
+              </span>
+              <span class="u-side">
+                <ion-skeleton-text animated style="width: 64px; height: 20px; border-radius: 999px;"></ion-skeleton-text>
+              </span>
+            </div>
+          </div>
+        </ion-item>
+      }
+    </ion-list>
+  } @else {
+
+@if (displayed.length === 0) {
+    <div class="empty-day">
+      <ion-icon name="people-outline"></ion-icon>
+      @if (filtro === 'coaches') {
+        <p>Sin coaches</p>
+        <small>No hay coaches registrados</small>
+      } @else {
+        <p>Sin usuarios</p>
+        <small>No hay usuarios registrados</small>
+      }
+    </div>
+  }
+<ion-list class="u-list animated fast fadeIn">
+  @for (Usuarios of displayed; track Usuarios.idUsuario) {
+    <ion-item-sliding class="u-slide">
+      <ion-item lines="none" detail="false" class="u-item ion-no-padding"
+        href="editarperfil/{{Usuarios.idUsuario}}/{{Usuarios.idRol}}/{{Usuarios.usuario}}/{{Usuarios.sexo}}/{{Usuarios.correoElectronico}}/{{Usuarios.nombre}}/{{Usuarios.telefono}}/{{Usuarios.contrasenia}}/{{Usuarios.estatus}}/{{Usuarios.totalMultas}}">
+        <div class="u-card">
+          <div class="u-top">
+            <span class="u-avatar" aria-hidden="true">
+              @if (Usuarios.sexo == 'M') {
+                <ion-icon name="man-outline"></ion-icon>
+              } @else if (Usuarios.sexo == 'F') {
+                <ion-icon name="woman-outline"></ion-icon>
+              } @else {
+                <ion-icon name="person-outline"></ion-icon>
+              }
+            </span>
+            <span class="u-main">
+              <b class="u-name" title="{{Usuarios.nombre}}">{{ nombreCorto(Usuarios.nombre) }}</b>
+              @if (Usuarios.idRol == 2) {
+                <small class="u-sub">{{Usuarios.membresia}}</small>
+              } @else if (Usuarios.idRol == 1) {
+                <small class="u-sub">Admin</small>
+              } @else {
+                <small class="u-sub">Coach</small>
+              }
+            </span>
+            <span class="u-side">
+              @if (Usuarios.estatus == 1) {
+                <label class="label-activo">Activo</label>
+              }
+              @if (Usuarios.estatus == 0) {
+                <label class="label-inactivo">Inactivo</label>
+              }
+              @if (Usuarios.estatus == 3) {
+                <label class="label-faltapago">Falta de pago</label>
+              }
+            </span>
+          </div>
+          <div class="u-bottom">
+            @if (Usuarios.idRol == 2 && Usuarios.vencimiento != 'N/A') {
+              <label class="label-membresiavenc">{{Usuarios.vencimiento}}</label>
+            }
+            @if (Usuarios.totalMultas > 0) {
+              <label class="multas">{{Usuarios.totalMultas}} multas</label>
+            }
+          </div>
+        </div>
+      </ion-item>
+    @if (Usuarios.idRol != 1) {
+      <ion-item-options side="start">
+        <ion-item-option color="warning" (click)="bPago(Usuarios.idUsuario)">
+          <ion-icon style="zoom: 2;" slot="top" name="alert-circle-outline"></ion-icon>
+          Falta de pago
+        </ion-item-option>
+      </ion-item-options>
+    }
+    @if (Usuarios.idRol != 1) {
+      <ion-item-options side="end">
+        <ion-item-option color="success" (click)="activar(Usuarios.idUsuario)">
+          <ion-icon style="zoom: 2;" slot="top" name="checkmark-circle-outline"></ion-icon>
+          Activar
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="desactivar(Usuarios.idUsuario)">
+          <ion-icon style="zoom: 2;" slot="top" name="close-circle-outline"></ion-icon>
+          Desactivar
+        </ion-item-option>
+      </ion-item-options>
+    }
+  </ion-item-sliding>
+}
+</ion-list>
+    <ion-infinite-scroll threshold="150px" [disabled]="infiniteDisabled" (ionInfinite)="loadMore($event)">
+      <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Cargando más..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  }
+</ion-content>

@@ -1,0 +1,117 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="dorado">Mi Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cambiarpass()">
+        @if (compania === 'iroda') {
+          <ion-icon class="dorado" slot="icon-only" name="lock-open-outline"></ion-icon>
+        }
+        @if (compania === 'lua') {
+          <ion-icon class="dorado" slot="icon-only" name="keyreset"></ion-icon>
+        }
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button class="dorado" defaultHref="" (click)="atras()" text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  class="contenido">
+  <br>
+    <ion-grid class="animated slow fadeInLeft">
+      <ion-row>
+        <ion-col size-md="6" size-lg="5" size-xs="12" size="16">
+
+          <ion-col>
+            @if (sexo === 'M') {
+              <div>
+                <ion-img src='assets/img/{{avatarh}}'></ion-img>
+              </div>
+            }
+            @if (sexo === 'F') {
+              <div>
+                <ion-img src='assets/img/{{avatarm}}'></ion-img>
+              </div>
+            }
+          </ion-col>
+          <div style="text-align: center;margin-top:5px;">
+            <label (click)="verAsistencias()" class="misasis" style="font-size: 12px;">Ver mis asistencias</label>
+          </div>
+          <br>
+            <ion-col class="user-info-wrapper" size="8">
+              <h3 class="user-name"> {{nombre}} </h3>
+            </ion-col>
+
+
+            <ion-col size="12px">
+              @if (membresia !== undefined) {
+                <div class="anuncio">
+                  <label style="font-size: 11px;">{{membresia}}</label>
+                </div>
+              }
+              <div class="container-membresia">
+                @if (confaltas === true && membresia !== undefined) {
+                  <label class="multas"
+                  style="font-size: 12px;">{{mensajeM}}</label>
+                }
+                @if (sinfaltas === true && membresia !== undefined) {
+                  <label class="sin-multas"
+                  style="font-size: 12px;">{{mensajeM}}</label>
+                }
+              </div>
+            </ion-col>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-md="6" size-lg="5" size-xs="12" class="acomodar">
+
+            <div padding>
+            <div class="profile-field">
+              <label class="profile-label">Usuario</label>
+              <div class="profile-input-wrap">
+                <ion-icon name="person-outline" class="profile-input-icon" aria-hidden="true"></ion-icon>
+                <ion-input type="text" disabled placeholder="{{user}}"></ion-input>
+              </div>
+            </div>
+
+            <div class="profile-field">
+              <label class="profile-label">Teléfono</label>
+              <div class="profile-input-wrap">
+                <ion-icon name="call-outline" class="profile-input-icon" aria-hidden="true"></ion-icon>
+                <ion-input name="telefono" type="tel" [(ngModel)]="telefono" required></ion-input>
+              </div>
+            </div>
+
+            <div class="profile-field">
+              <label class="profile-label">Correo electrónico</label>
+              <div class="profile-input-wrap">
+                <ion-icon name="mail-outline" class="profile-input-icon" aria-hidden="true"></ion-icon>
+                <ion-input name="correoElectronico" type="text" [(ngModel)]="email" required></ion-input>
+              </div>
+            </div>
+            <div class="profile-field">
+              <label class="profile-label">Fecha de nacimiento</label>
+              <div class="profile-input-wrap">
+                <ion-icon name="calendar-outline" class="profile-input-icon" aria-hidden="true"></ion-icon>
+                <ion-input name="fechaNacimiento" type="date" [(ngModel)]="fechaNacimiento" required></ion-input>
+              </div>
+            </div>
+          </div>
+          <br>
+            <div>
+              <ion-row>
+                <ion-col>
+                  <ion-button (click)="editarUser()" size="large" expand="block" class="btndorado">Editar
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </div>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>

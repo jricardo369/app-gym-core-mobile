@@ -1,0 +1,111 @@
+<ion-content>
+  <!-- Saludo estilo referencia -->
+  <div class="fit-greeting">
+    <div class="fit-avatar">{{ nombre?.charAt(0) || 'G' }}</div>
+    <div class="fit-greeting-text">
+      <small>Welcome back</small>
+      <strong>{{ nombre || 'Atleta' }}</strong>
+    </div>
+    <button class="fit-bell" type="button" aria-label="Notificaciones">
+      <ion-icon name="notifications-outline"></ion-icon>
+    </button>
+  </div>
+
+  <!-- Hero lima -->
+  <div class="fit-hero">
+    <div class="fit-hero-text">
+      <small><ion-icon name="flame-outline"></ion-icon> ControGym</small>
+      <h2>Tu panel<br />de entreno</h2>
+      <div class="fit-hero-pills">
+        <span class="fit-hero-pill"><ion-icon name="time-outline"></ion-icon> Hoy</span>
+        <span class="fit-hero-pill fit-hero-pill-dark" (click)="idrol === 2 ? calalumno() : caladmin()">Ver calendario</span>
+      </div>
+    </div>
+    <div class="fit-hero-ring" aria-hidden="true">
+      <svg viewBox="0 0 120 70">
+        <path d="M10 60 A 50 50 0 0 1 110 60" fill="none" stroke="#101010" stroke-width="12" stroke-linecap="round" opacity="0.9"/>
+        <path d="M10 60 A 50 50 0 0 1 85 15" fill="none" stroke="#f7fbff" stroke-width="12" stroke-linecap="round"/>
+      </svg>
+      <b>GO</b>
+    </div>
+  </div>
+
+  @if (mensaje && mensaje != '' && idrol === 2) {
+    <div class="rem">
+      <ion-icon name="notifications-outline"></ion-icon>
+      <label>{{ mensaje }}</label>
+    </div>
+  }
+
+  <!-- ===== ADMIN ===== -->
+  @if (idrol === 1) {
+    <div class="fit-section">
+      <h3>Today Target's</h3>
+      <span class="fit-link">Panel admin</span>
+    </div>
+    <div class="fit-list">
+      <button class="fit-row" (click)="caladmin()">
+        <span class="fit-row-icon"><ion-icon name="calendar-outline"></ion-icon></span>
+        <span class="fit-row-text"><b>Calendario</b><small>Clases y horarios</small></span>
+        <span class="fit-row-cta">Abrir <ion-icon name="chevron-forward-outline"></ion-icon></span>
+      </button>
+      <button class="fit-row" (click)="clases()">
+        <span class="fit-row-icon"><ion-icon name="barbell-outline"></ion-icon></span>
+        <span class="fit-row-text"><b>Clases</b><small>Power and definition</small></span>
+        <span class="fit-row-cta">Abrir <ion-icon name="chevron-forward-outline"></ion-icon></span>
+      </button>
+      <button class="fit-row" (click)="perfil()">
+        <span class="fit-row-icon"><ion-icon name="people-outline"></ion-icon></span>
+        <span class="fit-row-text"><b>Usuarios</b><small>Perfiles y pagos</small></span>
+        <span class="fit-row-cta">Abrir <ion-icon name="chevron-forward-outline"></ion-icon></span>
+      </button>
+    </div>
+  }
+
+  <!-- ===== ALUMNO ===== -->
+  @if (idrol === 2) {
+    <div class="fit-section">
+      <h3>Today Target's</h3>
+      <span class="fit-link">Mi entreno</span>
+    </div>
+    <div class="fit-list">
+      <button class="fit-row" (click)="calalumno()">
+        <span class="fit-row-icon"><ion-icon name="calendar-outline"></ion-icon></span>
+        <span class="fit-row-text"><b>Calendario</b><small>Mis clases</small></span>
+        <span class="fit-row-cta">Start <ion-icon name="chevron-forward-outline"></ion-icon></span>
+      </button>
+      <button class="fit-row" (click)="user()">
+        <span class="fit-row-icon"><ion-icon name="person-outline"></ion-icon></span>
+        <span class="fit-row-text"><b>Perfil</b><small>Mis datos y progreso</small></span>
+        <span class="fit-row-cta">Abrir <ion-icon name="chevron-forward-outline"></ion-icon></span>
+      </button>
+      <button class="fit-row" (click)="clasesalumnos()">
+        <span class="fit-row-icon"><ion-icon name="barbell-outline"></ion-icon></span>
+        <span class="fit-row-text"><b>Mis clases</b><small>45 Minutes</small></span>
+        <span class="fit-row-cta">Start <ion-icon name="chevron-forward-outline"></ion-icon></span>
+      </button>
+    </div>
+  }
+
+  <!-- ===== ENTRENADOR ===== -->
+  @if (idrol === 3) {
+    <div class="fit-section">
+      <h3>Today Target's</h3>
+      <span class="fit-link">Coach</span>
+    </div>
+    <div class="fit-list">
+      <button class="fit-row" (click)="caladmin()">
+        <span class="fit-row-icon"><ion-icon name="calendar-outline"></ion-icon></span>
+        <span class="fit-row-text"><b>Calendario</b><small>Clases asignadas</small></span>
+        <span class="fit-row-cta">Abrir <ion-icon name="chevron-forward-outline"></ion-icon></span>
+      </button>
+      <button class="fit-row" (click)="user()">
+        <span class="fit-row-icon"><ion-icon name="person-outline"></ion-icon></span>
+        <span class="fit-row-text"><b>Perfil</b><small>Mis datos</small></span>
+        <span class="fit-row-cta">Abrir <ion-icon name="chevron-forward-outline"></ion-icon></span>
+      </button>
+    </div>
+  }
+
+  <div style="height: 96px"></div>
+</ion-content>

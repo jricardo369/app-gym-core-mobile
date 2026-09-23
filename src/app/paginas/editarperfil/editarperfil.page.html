@@ -1,0 +1,113 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Editar perfil</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="perfil" text="" class="dorado"></ion-back-button>
+    </ion-buttons>
+    @if (idRol == 2) {
+      <ion-buttons slot="end">
+        <ion-button (click)="verPaquetes(idUsuario)">
+          @if (compania === 'iroda') {
+            <ion-icon class="dorado" name="book-outline"></ion-icon>
+          }
+          @if (compania === 'lua') {
+            <ion-icon class="dorado icon-24" slot="icon-only" name="memberships"></ion-icon>
+          }
+        </ion-button>
+      </ion-buttons>
+    }
+    @if (totalMultas > 0) {
+      <ion-buttons slot="end">
+        <ion-button (click)="eliminarFaltas(idUsuario,nombre)">
+          @if (compania === 'iroda') {
+            <ion-icon color="danger" name="notifications-off-outline"></ion-icon>
+          }
+          @if (compania === 'lua') {
+            <ion-icon class="rojo icon-20" slot="icon-only" name="not-notf"></ion-icon>
+          }
+        </ion-button>
+      </ion-buttons>
+    }
+  </ion-toolbar>
+</ion-header>
+<ion-content class="contenido">
+  <form #editarPerfil="ngForm" novalidate>
+    <ion-grid size-md="6" size-lg="5" size-xs="12">
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div padding>
+          <ion-item lines="none">
+            <ion-label position="stacked" style="color:#0f172a; font-weight:700; font-size:12px; margin-bottom:6px;">Tipo</ion-label>
+            <ion-select cancelText="Cancelar" okText="Aceptar" [(ngModel)]="ep.rol" name="rol" placeholder="Selecciona tipo">
+              <ion-select-option value="1">Administrador</ion-select-option>
+              <ion-select-option value="2">Usuario</ion-select-option>
+              <ion-select-option value="3">Entrenador</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="stacked" style="color:#0f172a; font-weight:700; font-size:12px; margin-bottom:6px;">Nombre</ion-label>
+            <ion-input name="nombre" type="text" [value]="nombre" [(ngModel)]="ep.nombre" placeholder="Nombre completo"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="stacked" style="color:#0f172a; font-weight:700; font-size:12px; margin-bottom:6px;">Usuario</ion-label>
+            <ion-input name="usuarioo" type="text" [value]="usuarioo" [(ngModel)]="ep.usuario" placeholder="usuario"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="stacked" style="color:#0f172a; font-weight:700; font-size:12px; margin-bottom:6px;">Contraseña</ion-label>
+            <ion-input name="contrasenia" type="password" [value]="contrasenia" [(ngModel)]="ep.contrasenia" placeholder="••••••••"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="stacked" style="color:#0f172a; font-weight:700; font-size:12px; margin-bottom:6px;">Correo electrónico</ion-label>
+            <ion-input name="correoElectronico" type="text" [value]="correoElectronico" [(ngModel)]="ep.correoElectronico" placeholder="correo@ejemplo.com"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <div style="display: flex;flex-direction: column;width: 100%;">
+              <ion-label style="color:#0f172a; font-weight:700; font-size:12px; margin-bottom:6px;">Sexo</ion-label>
+              <div>
+                <ion-segment (ionChange)="segmentChanged($event)" name="sexo" [(ngModel)]="ep.sexo">
+                  <ion-segment-button value="F">
+                    <ion-label>Femenino</ion-label>
+                  </ion-segment-button>
+                  <ion-segment-button value="M">
+                    <ion-label>Masculino</ion-label>
+                  </ion-segment-button>
+                </ion-segment>
+              </div>
+            </div>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="stacked" style="color:#0f172a; font-weight:700; font-size:12px; margin-bottom:6px;">Teléfono</ion-label>
+            <ion-input name="telefono" type="tel" [value]="telefono" [(ngModel)]="ep.telefono" placeholder="0"></ion-input>
+          </ion-item>
+
+          <div>
+            <ion-item lines="none" [hidden]="!mostrarUs">
+              <ion-label position="stacked" style="color:#0f172a; font-weight:700; font-size:12px; margin-bottom:6px;">Clases restantes</ion-label>
+              <ion-input name="clasesRestantes" type="text" [value]="clasesRestantes" [(ngModel)]="ep.clasesRestantes" placeholder="0"></ion-input>
+            </ion-item>
+          </div>
+          <br>
+            @if (idRol == 2) {
+              <label (click)="quitarFalta(idUsuario)" class="faltas">
+                Cuenta con {{contadorFaltas}} falta(s)
+              </label>
+            }
+            @if (idRol == 2) {
+              <label class="multas">
+                Cuenta con {{totalMultas}} multa(s)
+              </label>
+            }
+          </div>
+          <br>
+            <div>
+              <ion-row>
+                <ion-col>
+                  <ion-button type="submit" (click)="editarUsuario(editarPerfil)" size="large" expand="block" class="btndorado">Editar</ion-button>
+                </ion-col>
+              </ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-content>

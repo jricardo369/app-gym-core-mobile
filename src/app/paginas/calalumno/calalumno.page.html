@@ -1,0 +1,98 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="schedule-title">Schedule</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Tira semanal: semana actual, día seleccionado en lima -->
+  <div class="week-nav">
+    <button class="week-arrow" type="button" (click)="semanaAnterior()" aria-label="Semana anterior">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </button>
+    <div class="week-grid">
+      @for (dia of semana; track dia.key) {
+        <button
+          type="button"
+          class="day-cell"
+          [class.day-selected]="dia.key === diaSeleccionado"
+          (click)="seleccionarDia(dia)">
+          <b>{{ dia.num }}</b>
+          <small>{{ dia.dow }}</small>
+          @if (dia.esHoy) {
+            <i class="today-dot"></i>
+          }
+        </button>
+      }
+    </div>
+    <button class="week-arrow" type="button" (click)="semanaSiguiente()" aria-label="Semana siguiente">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </button>
+  </div>
+  <div class="month-row">
+    <span>{{ tituloMes }}</span>
+    <button type="button" class="today-link" (click)="irHoy()">Hoy</button>
+  </div>
+
+  <!-- Clases del día -->
+  <div class="fit-section">
+    <h3>Clases del día</h3>
+    <span class="fit-count">{{ clases.length }}</span>
+  </div>
+
+  <div class="date-pill">
+    <i></i>
+    <span>{{ fechaLabel }}</span>
+  </div>
+
+  @if (cargando) {
+    <div class="fit-list">
+      @for (item of [1,2,3]; track item) {
+        <div class="fit-row skeleton-row">
+          <span class="fit-row-icon skeleton-icon"></span>
+          <span class="fit-row-text">
+            <ion-skeleton-text animated style="width: 55%; height: 14px; border-radius: 6px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 40%; height: 11px; border-radius: 6px; margin-top: 8px;"></ion-skeleton-text>
+          </span>
+        </div>
+      }
+    </div>
+  } @else if (sinClases) {
+    <div class="empty-day">
+      <ion-icon name="calendar-clear-outline"></ion-icon>
+      <p>Sin clases este día</p>
+      <small>Selecciona otro día de la semana</small>
+    </div>
+  } @else {
+    <div class="fit-list">
+      @for (clase of clases; track clase.idClase + clase.descripcionHorario) {
+        <button type="button" class="fit-row" (click)="verClase(clase)">
+          <span class="fit-row-icon">
+            @if (clase.horario === 'V') {
+              <ion-icon name="moon-outline"></ion-icon>
+            } @else {
+              <ion-icon name="barbell-outline"></ion-icon>
+            }
+          </span>
+          <span class="fit-row-text">
+            <b>{{ clase.nombre }}</b>
+            <small>{{ clase.descripcionHorario }} · Coach {{ clase.profesorNombre }}</small>
+            <span class="fit-tags">
+              @if (clase.asistencia === 'true') {
+                <em class="tag-going">ASISTIRÁS</em>
+              }
+              @if (tieneLugares(clase)) {
+                <em class="tag-spots">{{ clase.lugaresDisponibles }}</em>
+              } @else if (claseLlena(clase)) {
+                <em class="tag-full">{{ clase.lugaresDisponibles }}</em>
+              }
+            </span>
+          </span>
+          <span class="fit-row-cta">Reservar <ion-icon name="chevron-forward-outline"></ion-icon></span>
+        </button>
+      }
+    </div>
+  }
+
+  <div style="height: 110px"></div>
+</ion-content>

@@ -1,0 +1,119 @@
+ion-card-title {
+  text-align: center;
+}
+
+ion-content ion-card {
+  width: 100%;
+  margin: 10px;
+}
+
+.image-center {
+  margin: 0 auto;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100px !important; //any size
+  max-height: 100px !important;
+}
+
+.lvencimiento {
+  color: gray;
+  font-size: 12px;
+  margin-left: 3px;
+}
+
+ion-item {
+  --padding-start: 0;
+}
+
+ion-c-status {
+  background: red;
+}
+
+.label-membresiavenc {
+  background: rgba(189,15,225,0.16);
+  color: #bd0fe1;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 4px 10px;
+  margin: 0;
+  flex: none;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* ===== Filtro Usuarios / Coaches debajo del buscador ===== */
+.u-filter { padding: 4px 16px 8px; }
+.u-filter ion-segment {
+  --background: #1d1d1d;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 999px;
+}
+.u-filter ion-segment-button {
+  --color: #a1a1aa;
+  --color-checked: #101010;
+  --background-checked: #d5ff5f;
+  --indicator-color: transparent;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  min-height: 34px;
+}
+.empty-day { text-align: center; padding: 40px 20px; color: #a1a1aa; }
+.empty-day ion-icon { font-size: 44px; color: #3f3f46; }
+.empty-day p { margin: 12px 0 4px; font-size: 14px; font-weight: 600; color: #f7fbff; }
+.empty-day small { font-size: 12px; }
+
+/* ===== Lista estilo imagen de referencia: avatar + nombre + estado ===== */
+.u-list { background: transparent; --background: transparent; padding: 4px 0 90px; }
+.u-slide { background: transparent; --background: transparent; }
+/* El ion-item solo envuelve el card: sin fondo, borde ni sombra (el global los pinta como card) */
+.u-list .u-item {
+  --background: transparent;
+  background: transparent;
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  --border-radius: 0;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.u-item::part(native) { background: transparent; padding: 0; border-radius: 0; }
+.u-card {
+  width: calc(100% - 16px);
+  max-width: calc(100% - 16px);
+  min-width: 0;
+  flex: none;
+  box-sizing: border-box;
+  margin: 6px 8px;
+  background: #1d1d1d;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 12px 14px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.u-top { display: flex; align-items: flex-start; gap: 12px; width: 100%; max-width: 100%; flex: none; min-width: 0; }
+.u-bottom { display: flex; flex-wrap: nowrap; gap: 6px; margin: 8px 0 0; min-height: 22px; align-items: center; justify-content: flex-start; }
+.u-bottom .multas { float: none; flex-shrink: 0; margin: 0; }
+.u-avatar {
+  width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+  background: #2a2a2a; border: 1px solid rgba(255,255,255,0.1);
+  display: inline-flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.u-avatar ion-icon { font-size: 24px; color: #d5ff5f; }
+.u-avatar.skeleton-avatar { background: transparent; border: none; }
+.u-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.u-name { font-size: 15px; font-weight: 700; color: #f7fbff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.u-sub { font-size: 12px; color: #a1a1aa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.u-side { flex-shrink: 0; min-width: 0; max-width: 45%; display: flex; flex-direction: column; align-items: flex-end; padding-top: 2px; }
+.u-side label { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+
